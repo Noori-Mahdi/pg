@@ -1,0 +1,1 @@
+export const loginArray = [{text:'registration',active:true},{text:'login',active:false}]

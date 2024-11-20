@@ -1,0 +1,98 @@
+@use "./variable.scss" as variable;
+
+.bg-main-dark {
+  background-color: variable.$bg-main-dark;
+}
+
+.bg-dark {
+  background-color: variable.$bg-dark;
+}
+
+.color-text-dark {
+  color: variable.$color-text-dark;
+}
+
+.color-text-muted {
+  color: variable.$color-text-muted;
+}
+
+.bg-input {
+  background-color: variable.$bg-input;
+}
+
+.text-label-input {
+  color: variable.$text-label-input;
+}
+
+.text-placeholder-input {
+  color: variable.$text-placeholder-input;
+}
+
+.text-input-error {
+  color: variable.$text-input-error;
+}
+
+.bg-primary {
+  background-color: variable.$primary-color;
+}
+
+.text-primary {
+  color: variable.$primary-color;
+}
+
+.border-color-checkBox {
+  border-color: variable.$color-text-muted;
+}
+
+.border-primary {
+  border-color: variable.$primary-color;
+}
+
+.filter {
+  filter: brightness(1.5);
+}
+
+.textAnimation {
+  position: relative;
+  font-size: 3vw;
+  width: fit-content;
+  font-weight: 700;
+  color: variable.$bg-dark;
+  -webkit-text-stroke: 0.1vw variable.$bg-dark;
+  text-transform: uppercase;
+}
+
+.glassBox {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+.textAnimation::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: variable.$primary-color;
+  -webkit-text-stroke: 0.1vw variable.$primary-color;
+  border-right: 2px solid variable.$primary-color;
+  overflow: hidden;
+  animation: animateText 6s linear infinite;
+}
+
+@keyframes animateText {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
