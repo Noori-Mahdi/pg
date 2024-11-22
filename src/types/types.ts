@@ -21,10 +21,29 @@ export type InputPropType = {
 export interface CheckBoxPorpType {
   context: React.ReactNode;
   active?: boolean;
+  onChange:(e:boolean)=>void
 }
 
 export interface ButtonPropType {
   text?: string;
   icon?: React.ReactNode;
   type: 'text'|'icon';
+  onClick?: ()=>void;
+}
+
+export interface UserInfo{
+  userName:string;
+  email:string;
+  password:string;
+  inc:string | null;
+}
+
+export interface UserContextType extends UserInfo{
+  isAuthenticated: boolean; 
+  logout: () => void;
+  login:(userData: UserInfo) =>void;
+}
+
+export interface LoginPropsType{
+  onChange: (e:boolean) =>void
 }

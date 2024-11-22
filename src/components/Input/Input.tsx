@@ -19,15 +19,18 @@ export const Input = ({
   const totalLevels = totalLevel;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value); 
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement, Element>)=>{
     const newValue = e.target.value;
     setValue(newValue); 
-
     if (regex && !regex.test(newValue)) {
       setErrorStatus(errorMessage || "Invalid input");
     } else {
       setErrorStatus(null);
     }
-  };
+  }
 
   useEffect(() => {
     if (type === "password" && totalLevel) {
@@ -89,6 +92,7 @@ export const Input = ({
           type={isPasswordVisible ? "text" : type} 
           value={value} 
           onChange={handleChange} 
+          onBlur={handleBlur}
         />
         {type === "password" && (
           <div className="w-8 h-full">

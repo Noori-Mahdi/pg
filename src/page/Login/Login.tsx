@@ -15,9 +15,15 @@ import {
   PASSWORD_REGEX,
   USERNAME_REGEX,
 } from "../../utils/regex";
+import { Clock } from "../../components/Clock/Clock";
+import { useUserContext } from "../../context/User";
+import { LoginPropsType } from "../../types/types";
 
-export const Login = () => {
+export const Login = ({onChange}:LoginPropsType) => {
   const [statusLoginPage, setStatusLoginPage] = useState(loginArray);
+  const [minimumAge, setMinimumAge] = useState<boolean>(false);
+  const [acceptRuls, setAccept] = useState<boolean>(false);
+  const { login ,isAuthenticated} = useUserContext();
 
   const handleClickSwitch = (index: number) => {
     const newList = statusLoginPage.map((item, i) => ({
@@ -27,6 +33,31 @@ export const Login = () => {
     setStatusLoginPage(newList);
   };
 
+
+  const handleRegistration = () => {
+    if (minimumAge && acceptRuls) {
+      const formData: Record<string, string> = {};
+      const inputs = document.querySelectorAll<HTMLInputElement>("input");
+      inputs.forEach((input) => {
+        if (input.name) {
+          formData[input.name] = input.value;
+        }
+      });
+
+      if (formData.email && formData.userName && formData.password) {
+        login({
+          email: formData.email,
+          userName: formData.userName,
+          password: formData.password,
+          inc: formData.invitationCode ? formData.invitationCode : null,
+        });
+        onChange(true)
+        alert("Registration successful!");
+      } else {
+        alert("Please fill all required fields.");
+      }
+    }
+  };
   const renderContent = () => {
     const activePage = statusLoginPage.find((e) => e.active);
 
@@ -105,7 +136,7 @@ export const Login = () => {
               errorMessage="Username must be 3-16 characters long and can only include letters, numbers, and underscores."
             />
           </div>
-          <div className="w-full mb-8">
+          <div className="w-full mb-8"> j
             <Input
               title="email"
               type="email"
@@ -131,7 +162,7 @@ export const Login = () => {
               title="confirm password"
               type="password"
               placeholder="Enter your confirm password"
-              name="confirm password"
+              name="confirmPassword"
               regex={PASSWORD_REGEX}
               errorMessage="Password must be at least 5 characters long and include a mix of uppercase, lowercase, and numbers."
             />
@@ -139,15 +170,16 @@ export const Login = () => {
           <div className="w-full mb-8">
             <Input
               title="Invitation Code"
-              type="invCode"
+              type="text"
               placeholder="Invitation Code"
-              name="invitation code"
+              name="invitationCode"
               regex={INVCODE}
               errorMessage="Invitation code must be exactly 8 characters long and contain only letters and numbers."
             />
           </div>
           <div className="mb-3">
             <CheckBox
+              onChange={setMinimumAge}
               active={false}
               context={
                 <span>
@@ -166,6 +198,7 @@ export const Login = () => {
           </div>
           <div className="mb-8">
             <CheckBox
+              onChange={setAccept}
               active={false}
               context={
                 <span>
@@ -176,7 +209,11 @@ export const Login = () => {
             />
           </div>
           <div className="mb-5">
-            <Button type="text" text="registation" />
+            <Button
+              type="text"
+              text="registration"
+              onClick={handleRegistration}
+            />
           </div>
           <div className="mb-5">
             <div className="text-center font-medium tracking-wide text-base">
@@ -218,8 +255,8 @@ export const Login = () => {
     <>
       <div className={`flex w-screen h-screen bg-main-dark color-text-dark`}>
         <div className="relative w-5/12 h-full">
-          <div className="w-full h-full flex flex-col justify-center pb-64 items-center bg-dark pt-5 px-3">
-            <div className="relative mb-14">
+          <div className="w-full h-full flex flex-col justify-center pb-32 items-center bg-dark pt-5 px-3">
+            <div className="relative mb-8">
               <FontAwesomeIcon className="w-32 h-32" icon={faJedi} />
             </div>
             <div className="capitalize text-xl text-center font-bold">
@@ -230,14 +267,11 @@ export const Login = () => {
               <span className="text-primary">Account Online :</span>
               <span className="pl-3">18,906</span>
             </div>
-          </div>
-          <div className="absolute w-full flex items-center justify-between left-0 bottom-0 px-4 pb-5 ">
-            <div className="">
-              <div className="uppercase text-2xl font-bold tracking-wider text-primary">
-                hi there!
-              </div>
-              <div className="lowercase font-bold">join us and enjoy</div>
+            <div className="mt-8 z-10">
+              <Clock />
             </div>
+          </div>
+          <div className="absolute w-full flex items-center justify-center right-8 bottom-0 pb-5 ">
             <div className="flex items-center justify-end px-2">
               <FontAwesomeIcon
                 className="relative w-16 h-16 p-3 rounded-full logo"

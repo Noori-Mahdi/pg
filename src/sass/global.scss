@@ -1,5 +1,10 @@
 @use "./variable.scss" as variable;
 
+
+.Orbitron{
+  font-family: 'Orbitron';
+}
+
 .bg-main-dark {
   background-color: variable.$bg-main-dark;
 }
