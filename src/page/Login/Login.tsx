@@ -136,7 +136,7 @@ export const Login = ({onChange}:LoginPropsType) => {
               errorMessage="Username must be 3-16 characters long and can only include letters, numbers, and underscores."
             />
           </div>
-          <div className="w-full mb-8"> j
+          <div className="w-full mb-8"> 
             <Input
               title="email"
               type="email"
