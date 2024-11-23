@@ -50,7 +50,7 @@ export const Clock = () => {
   }
 
   return (
-    <div className="w-64 Orbitron z-10">
+    <div className="w-64 Orbitron z-10 select-none">
       <div className="time_wrapper text-center mb-2">
         <span className="text-primary text-6xl mr-2 font-medium">{time.hour}</span>
         <span className="text-primary text-6xl mr-2 font-medium">:</span>

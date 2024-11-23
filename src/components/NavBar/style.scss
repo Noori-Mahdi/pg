@@ -1,0 +1,11 @@
+@use '../../sass/variable.scss' as variable;
+
+.pageList{
+    &:hover{
+        color: #fff;
+    }
+    &:last-child:hover{
+        color: variable.$text-input-error;
+        filter: opacity(.8);
+    }
+}
