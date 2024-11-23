@@ -1,0 +1,15 @@
+@use "../../sass/variable.scss" as variable;
+
+.NavBar {
+  & li {
+    border-right: 1px solid transparent;
+    &:hover {
+      color: variable.$primary-color;
+      border-color: variable.$primary-color;
+    }
+    &:last-child:hover {
+      color: variable.$text-input-error;
+      border-color: variable.$text-input-error;
+    }
+  }
+}

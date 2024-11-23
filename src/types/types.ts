@@ -12,38 +12,58 @@ export type InputPropType = {
   name: string;
   placeholder: string;
   title: string;
-  type: "password" | "text" | "email" | 'username' | 'invCode';
+  type: "password" | "text" | "email" | "username" | "invCode";
   totalLevel?: number;
-  regex?: RegExp; 
+  regex?: RegExp;
   errorMessage?: string;
 };
 
 export interface CheckBoxPorpType {
   context: React.ReactNode;
   active?: boolean;
-  onChange:(e:boolean)=>void
+  onChange: (e: boolean) => void;
 }
 
 export interface ButtonPropType {
   text?: string;
   icon?: React.ReactNode;
-  type: 'text'|'icon';
-  onClick?: ()=>void;
+  type: "text" | "icon";
+  onClick?: () => void;
 }
 
-export interface UserInfo{
-  userName:string;
-  email:string;
-  password:string;
-  inc:string | null;
+export interface UserInfo {
+  userName: string;
+  email: string;
+  password: string;
+  inc: string | null;
 }
 
-export interface UserContextType extends UserInfo{
-  isAuthenticated: boolean; 
+export interface UserContextType extends UserInfo {
+  isAuthenticated: boolean;
   logout: () => void;
-  login:(userData: UserInfo) =>void;
+  login: (userData: UserInfo) => void;
 }
 
-export interface LoginPropsType{
-  onChange: (e:boolean) =>void
+export interface LoginPropsType {
+  onChange: (e: boolean) => void;
+}
+
+export interface ClockPropType {
+  type: "full" | "time";
+}
+
+export interface ProgressBarPropType {
+  progress: number;
+  label: string;
+}
+
+export interface ProfileBoxPropsType {
+  userName?: string;
+  img: string;
+  level?: number;
+}
+
+export interface CurrentBoxPropsType {
+  currentType: "coin" | "crown";
+  AmountUnits: number;
 }

@@ -21,9 +21,18 @@
   color: variable.$color-text-muted;
 }
 
+.bg-muted {
+  background-color: variable.$color-text-muted;
+}
+
 .bg-input {
   background-color: variable.$bg-input;
 }
+
+.text-gold{
+  color: variable.$gold-color;
+}
+
 
 .text-label-input {
   color: variable.$text-label-input;
@@ -68,11 +77,11 @@
 }
 
 .glassBox {
-  background: rgba(255, 255, 255, 0);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+background: rgba(4, 2, 39, 0.82);
+border-radius: 8px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.8px);
+-webkit-backdrop-filter: blur(12.8px);
 }
 
 

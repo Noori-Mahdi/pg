@@ -268,7 +268,7 @@ export const Login = ({onChange}:LoginPropsType) => {
               <span className="pl-3">18,906</span>
             </div>
             <div className="mt-8 z-10">
-              <Clock />
+              <Clock type="full"/>
             </div>
           </div>
           <div className="absolute w-full flex items-center justify-center right-8 bottom-0 pb-5 ">

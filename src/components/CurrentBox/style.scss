@@ -1,0 +1,8 @@
+@use '../../sass/variable.scss' as variable;
+
+.current-box{
+    & button:hover{
+        background-color: variable.$primary-color;
+        color: variable.$bg-main-dark;
+    }
+}
