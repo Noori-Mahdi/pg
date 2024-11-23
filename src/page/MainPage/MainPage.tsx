@@ -8,8 +8,9 @@ export const MainPage = () => {
       <div className="w-full">
         <HorizontalNavbar />
       </div>
-      <div className="flex w-full flex-grow">
-        <VerticalNavBar />
+      <div className="flex w-full justify-between flex-grow">
+        <VerticalNavBar type="navBar"/>
+        <VerticalNavBar type="friendList"/>
         {/* <Home /> */}
       </div>
     </div>

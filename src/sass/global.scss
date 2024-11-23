@@ -1,8 +1,7 @@
 @use "./variable.scss" as variable;
 
-
-.Orbitron{
-  font-family: 'Orbitron';
+.Orbitron {
+  font-family: "Orbitron";
 }
 
 .bg-main-dark {
@@ -29,10 +28,9 @@
   background-color: variable.$bg-input;
 }
 
-.text-gold{
+.text-gold {
   color: variable.$gold-color;
 }
-
 
 .text-label-input {
   color: variable.$text-label-input;
@@ -53,6 +51,12 @@
 .text-primary {
   color: variable.$primary-color;
 }
+.text-success {
+  color: variable.$green-color;
+}
+.text-muted {
+  color: variable.$color-text-muted;
+}
 
 .border-color-checkBox {
   border-color: variable.$color-text-muted;
@@ -60,6 +64,14 @@
 
 .border-primary {
   border-color: variable.$primary-color;
+}
+
+.border-muted {
+  border-color: variable.$color-text-muted;
+}
+
+.border-success {
+  border-color: variable.$green-color;
 }
 
 .filter {
@@ -77,13 +89,12 @@
 }
 
 .glassBox {
-background: rgba(4, 2, 39, 0.82);
-border-radius: 8px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(12.8px);
--webkit-backdrop-filter: blur(12.8px);
+  background: rgba(4, 2, 39, 0.82);
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.8px);
+  -webkit-backdrop-filter: blur(12.8px);
 }
-
 
 .textAnimation::before {
   content: attr(data-text);

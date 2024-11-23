@@ -1,0 +1,14 @@
+@import '../../sass/global.scss';
+
+.MinProfile::after{
+    @extend .glassBox;
+    content: '';
+    right: -4%;
+    transform: rotate(45deg);
+    top:5%;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 0;
+    border-radius: 0;
+}

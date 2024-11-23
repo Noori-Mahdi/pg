@@ -67,3 +67,12 @@ export interface CurrentBoxPropsType {
   currentType: "coin" | "crown";
   AmountUnits: number;
 }
+
+export interface VerticalNavBarPropsType{
+  type: 'friendList' | 'navBar'
+}
+
+export interface MinProfilePropsType extends ProfileBoxPropsType{
+  userStatus:number;
+  inGame?:string |null;
+}
